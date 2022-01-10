@@ -6,10 +6,6 @@
  * NOTE : Please do not use loops! All tasks can be implemented using standard Array methods  *
  *                                                                                            *
  ******************************************************************************************** */
-
-
-const { retry } = require('./08-functions-n-closures-tasks');
-
 /**
  * Returns an index of the specified element in array or -1 if element is not found
  *
@@ -465,7 +461,8 @@ function sortCitiesArray(arr) {
  *           [0,0,0,0,1]]
  */
 function getIdentityMatrix(n) {
-  return new Array(n).fill(new Array(n).fill(0)).map((subarray, idx1) => subarray.map((x, idx2) => (idx2 === idx1 ? 1 : 0)));
+  return new Array(n).fill(new Array(n).fill(0))
+    .map((subarray, idx1) => subarray.map((x, idx2) => (idx2 === idx1 ? 1 : 0)));
 }
 
 /**
@@ -532,7 +529,9 @@ function distinct(arr) {
  */
 function group(array, keySelector, valueSelector) {
   const multimap = new Map();
-  array.map((x) => (multimap.has(keySelector(x)) ? multimap.get(keySelector(x)).push(valueSelector(x)) : multimap.set(keySelector(x), [valueSelector(x)])));
+  array.map((x) => (multimap
+    .has(keySelector(x)) ? multimap.get(keySelector(x))
+      .push(valueSelector(x)) : multimap.set(keySelector(x), [valueSelector(x)])));
   return multimap;
 }
 
@@ -604,7 +603,8 @@ function swapHeadAndTail(arr) {
   if (arr.length < 2) return arr;
   let result = [];
   const middle = arr.length % 2 === 0 ? [] : arr[Math.floor(arr.length / 2)];
-  result = result.concat(arr.slice(Math.ceil(arr.length / 2)), middle, arr.slice(0, Math.floor(arr.length / 2)));
+  result = result.concat(arr.slice(Math
+    .ceil(arr.length / 2)), middle, arr.slice(0, Math.floor(arr.length / 2)));
   return result;
 }
 
